@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse</title>
+</head>
+<body>
+    <h2>Reverse the word in the sentence</h2>
+    <input type="text" placeholder="Enter the sentence" id="input">
+    <button onclick="dcruze()">Reverse</button>
+    <p id="result"></p>
+
+    <script>
+        function dcruze(){
+            const input = document.getElementById("input").value
+            const words = input.split(" ")
+            .map(word => word.split("").reverse().join("")).join(" ")
+            document.getElementById("result").innerText = "result : " + words
+        }
+    </script>
+</body>
+</html>
