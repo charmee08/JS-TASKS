@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multiplication & Division Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #8c8a8c;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      margin: 10px;
+      width: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #bb2b67;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <h2>Multiplication & Division</h2>
+    <input type="number" id="num1" placeholder="Number 1">
+    <input type="number" id="num2" placeholder="Number 2">
+    <br>
+    <button onclick="calculate()">Calculate</button>
+
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    function calculate() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      const output = document.getElementById("output");
+
+      if (isNaN(num1) || isNaN(num2)) {
+        output.innerHTML = "<span class='error'>Please enter valid numbers.</span>";
+        return;
+      }
+
+      const multiplication = num1 * num2;
+      let division;
+
+      if (num2 === 0) {
+        division = "<span class='error'>Division by zero is not allowed.</span>";
+      } else {
+        division = `${num1} ÷ ${num2} = ${num1 / num2}`;
+      }
+
+      output.innerHTML = `
+        Multiplication: ${num1} * ${num2} = ${multiplication}<br>
+        Division: ${division}
+      `;
+    }
+  </script>
+
+</body>
+</html>
