@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Count Vowels in a String</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #93dee3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .vowel-counter {
+      background: #ddaece;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="vowel-counter text-center">
+    <h3 class="mb-4 text-primary">Count Vowels in a String</h3>
+    <div class="mb-3">
+      <input type="text" id="inputString" class="form-control" placeholder="Enter a string...">
+    </div>
+    <button class="btn btn-success w-100" onclick="countVowels()">Count Vowels</button>
+    <div id="result" class="mt-4 fs-5 text-secondary"></div>
+  </div>
+
+  <script>
+    function countVowels() {
+      const str = document.getElementById('inputString').value;
+      const vowels = str.match(/[aeiouAEIOU]/g);
+      const count = vowels ? vowels.length : 0;
+      document.getElementById('result').innerHTML = `Number of vowels: <strong>${count}</strong>`;
+    }
+  </script>
+
+</body>
+</html>
