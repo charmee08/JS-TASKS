@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Validate Name Field</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #c4e4e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .validation-card {
+      background: #dfa6d8;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="validation-card text-center">
+    <h3 class="text-primary mb-4">Name Validation</h3>
+    <div class="mb-3">
+      <input type="text" id="nameInput" class="form-control" placeholder="Enter your name...">
+    </div>
+    <button class="btn btn-success w-100" onclick="validateName()">Validate</button>
+    <div id="result" class="mt-4 fs-5"></div>
+  </div>
+
+  <script>
+    function validateName() {
+      const name = document.getElementById('nameInput').value.trim();
+      const result = document.getElementById('result');
+      const namePattern = /^[A-Za-z\s]+$/;
+
+      if (name === "") {
+        result.innerHTML = `<span class="text-danger">Name cannot be empty.</span>`;
+      } else if (!namePattern.test(name)) {
+        result.innerHTML = `<span class="text-danger">${name} is invalid. <br>❌ Name can only contain letters and spaces.</span>`;
+      } else {
+        result.innerHTML = `<span class="text-success">${name} is valid. ✅</span>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
