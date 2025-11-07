@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Data Types & Type Conversion</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      background-color: #cbd2d8;
+    }
+    .container {
+      margin-top: 50px;
+      background: #a5abbe;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #0b0b0b;
+      margin-bottom: 20px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    code {
+      background-color: #f1f1f1;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container text-center">
+    <h1>🧠 JavaScript Data Types & Type Conversion</h1>
+    <p class="text-muted">
+      Open the <b>browser console</b> (F12 → Console tab) to see all details.
+    </p>
+
+    <div class="card p-4 mt-4">
+      <h3 class="mb-3">Type Conversion Demo</h3>
+      <div class="input-group mb-3 justify-content-center">
+        <input
+          type="text"
+          id="numInput"
+          class="form-control w-50"
+          placeholder="Enter a number (e.g. 42)"
+        />
+        <button class="btn btn-primary" onclick="convertType()">Convert Type</button>
+      </div>
+      <div id="result" class="alert alert-info"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    console.log("=== JavaScript Data Types ===");
+    let num = 25;              
+    let str = "Hello";          
+    let bool = true;            
+    let emptyValue = null;       
+    let notDefined;              
+    let person = { name: "Alice", age: 30 }; 
+    let uniqueId = Symbol("id"); 
+
+    console.log("Number:", num, typeof num);
+    console.log("String:", str, typeof str);
+    console.log("Boolean:", bool, typeof bool);
+    console.log("Null:", emptyValue, typeof emptyValue);
+    console.log("Undefined:", notDefined, typeof notDefined);
+    console.log("Object:", person, typeof person);
+    console.log("Symbol:", uniqueId, typeof uniqueId);
+
+    console.log("\\n=== Type Conversion ===");
+
+    let numberToString = String(123);
+    let stringToNumber = Number("456");
+    let booleanToString = String(false);
+    let stringToBoolean = Boolean("true");
+
+    console.log("Number to String:", numberToString, typeof numberToString);
+    console.log("String to Number:", stringToNumber, typeof stringToNumber);
+    console.log("Boolean to String:", booleanToString, typeof booleanToString);
+    console.log("String to Boolean:", stringToBoolean, typeof stringToBoolean);
+
+    console.log("\\n=== Implicit Conversions ===");
+    console.log("'5' + 2 =", "5" + 2); 
+    console.log("'5' - 2 =", "5" - 2); 
+    console.log("'5' * '2' =", "5" * "2");
+    console.log("true + 1 =", true + 1);
+    console.log("false + 1 =", false + 1);
+
+    function convertType() {
+      const inputValue = document.getElementById("numInput").value;
+
+      const toNumber = Number(inputValue);
+      const backToString = String(toNumber);
+
+      console.log("\\n=== Conversion from Input ===");
+      console.log("Original value:", inputValue, typeof inputValue);
+      console.log("Converted to Number:", toNumber, typeof toNumber);
+      console.log("Back to String:", backToString, typeof backToString);
+
+      document.getElementById("result").innerHTML = `
+        <div>Original value: "<code>${inputValue}</code>" (<b>${typeof inputValue}</b>)</div>
+        <div>Converted to Number: <code>${toNumber}</code> (<b>${typeof toNumber}</b>)</div>
+        <div>Back to String: "<code>${backToString}</code>" (<b>${typeof backToString}</b>)</div>
+      `;
+    }
+  </script>
+</body>
+</html>

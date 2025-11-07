@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Function Context & Advanced Calls</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #a0de8c;
+      color: #040404;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #090909;
+    }
+
+    .container {
+      background: #be9a9a;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    button {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #005ea3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Function Context & Advanced Calls</h1>
+  <div class="container">
+    <h3>Output:</h3>
+    <pre id="output">Click the button to see how call(), apply(), and bind() work...</pre>
+    <button onclick="runTask3()">Run Example</button>
+  </div>
+
+  <script>
+    function runTask3() {
+      let output = '';
+
+      const person1 = { name: 'Alice' };
+      const person2 = { name: 'Bob' };
+
+      function greet(greeting, punctuation) {
+        return `${greeting}, my name is ${this.name}${punctuation}`;
+      }
+
+      const callExample1 = greet.call(person1, 'Hello', '!');
+      const callExample2 = greet.call(person2, 'Hi', '!!');
+
+      output += '--- Using call() ---\n';
+      output += `greet.call(person1, 'Hello', '!') → ${callExample1}\n`;
+      output += `greet.call(person2, 'Hi', '!!') → ${callExample2}\n\n`;
+
+      const applyExample1 = greet.apply(person1, ['Good morning', '.']);
+      const applyExample2 = greet.apply(person2, ['Hey there', '!!']);
+
+      output += '--- Using apply() ---\n';
+      output += `greet.apply(person1, ['Good morning', '.']) → ${applyExample1}\n`;
+      output += `greet.apply(person2, ['Hey there', '!!']) → ${applyExample2}\n\n`;
+
+      const boundToAlice = greet.bind(person1);
+      const boundToBob = greet.bind(person2);
+
+      output += '--- Using bind() ---\n';
+      output += `const boundToAlice = greet.bind(person1);\n`;
+      output += `boundToAlice('Hi', '!') → ${boundToAlice('Hi', '!')}\n`;
+      output += `boundToBob('Yo', '!!') → ${boundToBob('Yo', '!!')}\n\n`;
+
+      const delayedGreeting = boundToAlice.bind({ name: 'Eve' }); 
+      output += '--- bind() Keeps Context Even When Rebound ---\n';
+      output += `boundToAlice.bind({name: 'Eve'})('Hello', '!') → ${delayedGreeting('Hello', '!')}\n\n`;
+
+      output += '--- Comparison Summary ---\n';
+      output += `
+call()  → Calls immediately, pass args individually.
+apply() → Calls immediately, pass args as array.
+bind()  → Returns a new function with permanently bound 'this'.`;
+
+      document.getElementById('output').textContent = output;
+    }
+  </script>
+</body>
+</html>

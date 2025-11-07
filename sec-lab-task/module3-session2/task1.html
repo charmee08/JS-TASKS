@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring, Notation & Iteration</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    pre { background: #decccc; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+<h2>Task 1: Destructuring, Notation & Iteration</h2>
+<pre id="output"></pre>
+
+<script>
+  let output = "";
+
+  const fruits = ["Apple", "Banana", "Cherry"];
+  const [first, second, third] = fruits;
+  output += `Array Destructuring:\nFirst: ${first}, Second: ${second}, Third: ${third}\n\n`;
+
+  const person = {
+    name: "John",
+    age: 30,
+    contact: {
+      email: "john@example.com",
+      phone: "123-456-7890"
+    }
+  };
+
+  const { name, age, contact: { email, phone } } = person;
+  output += `Object Destructuring:\nName: ${name}, Age: ${age}, Email: ${email}, Phone: ${phone}\n\n`;
+
+  const student = { id: 101, course: "Math", grade: "A" };
+  output += `Dot Notation: ${student.course}\n`;
+  output += `Bracket Notation: ${student["grade"]}\n\n`;
+
+  const car = { brand: "Toyota", model: "Corolla", year: 2022 };
+
+  output += `Iteration using for...in:\n`;
+  for (let key in car) {
+    output += `${key}: ${car[key]}\n`;
+  }
+
+  output += `\nUsing Object.keys():\n`;
+  Object.keys(car).forEach(key => {
+    output += `${key}: ${car[key]}\n`;
+  });
+
+  output += `\nUsing Object.entries():\n`;
+  for (const [key, value] of Object.entries(car)) {
+    output += `${key}: ${value}\n`;
+  }
+
+  document.getElementById("output").textContent = output;
+</script>
+
+</body>
+</html>

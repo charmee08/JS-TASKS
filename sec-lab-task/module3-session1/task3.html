@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Object Destructuring & Spread Example</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    pre { background: #f0f0f0; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+<h2>Object Destructuring and Spread Operator</h2>
+<pre id="output"></pre>
+
+<script>
+  const person = {
+    name: "Alice",
+    age: 25,
+    address: {
+      city: "New York",
+      country: "USA"
+    }
+  };
+
+  const { name, age } = person;
+
+  const { hobby = "Reading" } = person;
+
+  const { address: { city, country } } = person;
+
+  const clonedPerson = { ...person };
+  const updatedPerson = { ...person, age: 26, profession: "Engineer" };
+
+  document.getElementById("output").textContent = `
+Name: ${name}
+Age: ${age}
+Hobby (default): ${hobby}
+City: ${city}
+Country: ${country}
+
+Cloned Person: ${JSON.stringify(clonedPerson, null, 2)}
+Updated Person: ${JSON.stringify(updatedPerson, null, 2)}
+  `;
+</script>
+
+</body>
+</html>

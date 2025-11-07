@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math & String Functions Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #edd0d0;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Math & String Built-in Functions Demo</h1>
+
+    <div class="section">
+        <h2>Math Functions</h2>
+        <pre id="mathOutput"></pre>
+    </div>
+
+    <div class="section">
+        <h2>String Functions</h2>
+        <pre id="stringOutput"></pre>
+    </div>
+
+    <script>
+        const mathOutput = document.getElementById('mathOutput');
+
+        const randomNum = Math.random(); 
+        const randomNum10 = Math.random() * 10; 
+
+       
+        const num = 7.6;
+        const roundNum = Math.round(num);
+        const ceilNum = Math.ceil(num);
+        const floorNum = Math.floor(num);
+
+        const numbers = [3, 7, 1, 9, 4];
+        const minNum = Math.min(...numbers);
+        const maxNum = Math.max(...numbers);
+
+        mathOutput.textContent = 
+`Random number (0-1): ${randomNum}
+Random number (0-10): ${randomNum10}
+Original number: ${num}
+Rounded: ${roundNum}, Ceil: ${ceilNum}, Floor: ${floorNum}
+Numbers list: [${numbers}]
+Min: ${minNum}, Max: ${maxNum}`;
+
+        const stringOutput = document.getElementById('stringOutput');
+
+        const text = "Hello, World!";
+        const upperText = text.toUpperCase();
+        const lowerText = text.toLowerCase();
+        const substringText = text.substring(0,5); 
+        const includesHello = text.includes("Hello");
+        const replacedText = text.replace("World", "JavaScript");
+
+        stringOutput.textContent =
+`Original text: "${text}"
+Uppercase: "${upperText}"
+Lowercase: "${lowerText}"
+Substring (0-5): "${substringText}"
+Includes "Hello"? ${includesHello}
+Replace "World" with "JavaScript": "${replacedText}"`;
+    </script>
+</body>
+</html>

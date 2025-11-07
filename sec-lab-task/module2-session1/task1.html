@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #b8e4ed;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Functions Example</h1>
+    <button onclick="testFixedFunction()">Test Fixed Parameters Function</button>
+    <button onclick="testArbitraryFunction()">Test Arbitrary Parameters Function</button>
+
+    <script>
+        function greet(name, age) {
+            console.log(`Hello ${name}, you are ${age} years old.`);
+        }
+
+        function sumNumbers(...numbers) {
+            let sum = 0;
+            for (let num of numbers) {
+                sum += num;
+            }
+            return sum;
+        }
+
+        function testFixedFunction() {
+            greet("Alice", 25); 
+            greet("Bob", 30);
+        }
+
+        function testArbitraryFunction() {
+            console.log("Sum of 1, 2, 3:", sumNumbers(1, 2, 3));
+            console.log("Sum of 10, 20, 30, 40:", sumNumbers(10, 20, 30, 40));
+        }
+    </script>
+</body>
+</html>

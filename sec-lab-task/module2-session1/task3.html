@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Functions & Scopes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f2ff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4B0082;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #8A2BE2;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #6A1BB9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Callback Functions & Scopes</h1>
+
+    <button onclick="testCallback()">Test Callback Function</button>
+    <button onclick="testScopes()">Test Scopes</button>
+
+    <script>
+        function performAction(message, callback) {
+            console.log("Action performed: " + message);
+            callback(); 
+        }
+
+        function myCallback() {
+            console.log("Callback executed: This runs after the main action.");
+        }
+
+        function testCallback() {
+            performAction("Processing data...", myCallback);
+        }
+
+        function testScopes() {
+           
+            var globalVar = "I am a global variable (var)";
+            let globalLet = "I am a global variable (let)";
+            const globalConst = "I am a global variable (const)";
+
+            console.log("Global Scope:");
+            console.log(globalVar, globalLet, globalConst);
+
+            if (true) {
+                var blockVar = "I am a block-scoped var (actually function scoped)";
+                let blockLet = "I am a block-scoped let";
+                const blockConst = "I am a block-scoped const";
+
+                console.log("Inside block:");
+                console.log(blockVar);    
+                console.log(blockLet);    
+                console.log(blockConst);  
+            }
+
+            console.log("Outside block:");
+            console.log(blockVar);       
+            function localScopeExample() {
+                var localVar = "I am local var";
+                let localLet = "I am local let";
+                const localConst = "I am local const";
+                console.log("Inside localScopeExample:");
+                console.log(localVar, localLet, localConst);
+            }
+
+            localScopeExample();
+        }
+    </script>
+</body>
+</html>

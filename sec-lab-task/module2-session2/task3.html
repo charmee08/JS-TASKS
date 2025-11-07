@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Loops - Easy Version</title>
+    <style>
+        body {
+            background-color: rgb(223, 163, 241);
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #edc5c5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Array Iteration & Loops (Simple)</h1>
+    <pre id="output"></pre>
+
+    <script>
+        const output = document.getElementById('output');
+
+        const numbers = [1, 2, 3, 4, 5];
+        let text = '';
+
+        text += 'forEach:\n';
+        numbers.forEach((num) => {
+            text += num + ' ';
+        });
+        text += '\n\n';
+
+        const squares = numbers.map(num => num * num);
+        text += 'map (squares): ' + squares.join(' ') + '\n\n';
+
+        text += 'for-in (indexes):\n';
+        for (let i in numbers) {
+            text += i + ' ';
+        }
+        text += '\n\n';
+
+        text += 'for-of (values):\n';
+        for (let num of numbers) {
+            text += num + ' ';
+        }
+
+        output.textContent = text;
+    </script>
+
+</body>
+</html>

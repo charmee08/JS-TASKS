@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Operators Demo</title>
+
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <style>
+    body {
+      background-color: #f7f9fc;
+    }
+    .container {
+      margin-top: 40px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #007bff;
+      margin-bottom: 25px;
+    }
+    pre {
+      background-color: #f1f3f6;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: left;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container text-center">
+    <h1>⚙️ JavaScript Operators Practice</h1>
+    <p class="text-muted">Open the <b>console (F12)</b> to see detailed output.</p>
+
+    <div class="card mt-4 p-3">
+      <h4>Operator Examples</h4>
+      <p>Click the button below to run the operator examples:</p>
+      <button class="btn btn-primary" onclick="showOperators()">Run Operators</button>
+
+      <div id="output" class="mt-4 text-start"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function showOperators() {
+      let resultHTML = "<h5>Results:</h5><pre>";
+
+      console.clear();
+      console.log("=== JavaScript Operators Demo ===");
+
+      console.log("\\n=== Arithmetic Operators ===");
+      let a = 10, b = 3;
+      console.log("a + b =", a + b);
+      console.log("a - b =", a - b);
+      console.log("a * b =", a * b);
+      console.log("a / b =", a / b);
+      console.log("a % b =", a % b);
+
+      resultHTML += `Arithmetic Operators:
+a = ${a}, b = ${b}
+a + b = ${a + b}
+a - b = ${a - b}
+a * b = ${a * b}
+a / b = ${(a / b).toFixed(2)}
+a % b = ${a % b}\n\n`;
+
+     
+      console.log("\\n=== Assignment Operators ===");
+      let x = 5;
+      x += 2;
+      console.log("x += 2 ->", x);
+      x -= 1;
+      console.log("x -= 1 ->", x);
+
+      resultHTML += `Assignment Operators:
+x starts as 5
+x += 2 -> ${x}
+x -= 1 -> ${x}\n\n`;
+
+      
+      console.log("\\n=== Relational Operators ===");
+      let p = 10, q = "10";
+      console.log("p == q ->", p == q);
+      console.log("p === q ->", p === q);
+      console.log("p != q ->", p != q);
+      console.log("p !== q ->", p !== q);
+      console.log("p > 5 ->", p > 5);
+      console.log("p <= 10 ->", p <= 10);
+
+      resultHTML += `Relational Operators:
+p = 10, q = "10"
+p == q -> ${p == q}
+p === q -> ${p === q}
+p != q -> ${p != q}
+p !== q -> ${p !== q}
+p > 5 -> ${p > 5}
+p <= 10 -> ${p <= 10}\n\n`;
+
+    
+      console.log("\\n=== Logical Operators ===");
+      let r = true, s = false;
+      console.log("r && s ->", r && s);
+      console.log("r || s ->", r || s);
+      console.log("!r ->", !r);
+
+      resultHTML += `Logical Operators:
+r = true, s = false
+r && s -> ${r && s}
+r || s -> ${r || s}
+!r -> ${!r}\n\n`;
+
+      
+      console.log("\\n=== Conditional (Ternary) Operator ===");
+      let age = 18;
+      let canVote = (age >= 18) ? "Yes" : "No";
+      console.log("Age =", age, "| Can vote? ->", canVote);
+
+      resultHTML += `Conditional (Ternary) Operator:
+Age = ${age}
+Can vote? -> ${canVote}\n\n`;
+
+    
+      console.log("\\n=== Bitwise Operators ===");
+      let m = 5, n = 1;
+      console.log("m & n =", m & n);
+      console.log("m | n =", m | n);
+      console.log("m ^ n =", m ^ n);
+      console.log("~m =", ~m);
+      console.log("m << 1 =", m << 1);
+      console.log("m >> 1 =", m >> 1);
+
+      resultHTML += `Bitwise Operators:
+m = 5 (binary 0101), n = 1 (binary 0001)
+m & n = ${m & n}
+m | n = ${m | n}
+m ^ n = ${m ^ n}
+~m = ${~m}
+m << 1 = ${m << 1}
+m >> 1 = ${m >> 1}\n\n`;
+
+    
+      console.log("\\n=== Increment / Decrement ===");
+      let count = 10;
+      console.log("count++ =", count++);
+      console.log("After count++ =", count);
+      console.log("++count =", ++count);
+      console.log("count-- =", count--);
+      console.log("After count-- =", count);
+
+      resultHTML += `Increment / Decrement:
+Start count = 10
+count++ = 10 (then becomes ${count})
+++count = ${++count}
+count-- = ${count--}
+Final count = ${count}\n`;
+
+      resultHTML += "</pre>";
+      document.getElementById("output").innerHTML = resultHTML;
+    }
+  </script>
+</body>
+</html>

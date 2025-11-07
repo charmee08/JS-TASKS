@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Array Methods Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #acc3db;
+      color: #010101;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0e0e0e;
+    }
+
+    .container {
+      background: rgb(228, 197, 197);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #070707;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 5px;
+    }
+
+    pre {
+      background: #e0e0e0;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    button {
+      background-color: #79a84b;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #9a3fc7;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Advanced Array Methods in JavaScript</h1>
+
+  <div class="container">
+    <h2>1. filter() Example</h2>
+    <pre id="filterOutput"></pre>
+  </div>
+
+  <div class="container">
+    <h2>2. reduce() Example</h2>
+    <pre id="reduceOutput"></pre>
+  </div>
+
+  <div class="container">
+    <h2>3. slice() Example</h2>
+    <pre id="sliceOutput"></pre>
+  </div>
+
+  <div class="container">
+    <h2>4. splice() Example</h2>
+    <pre id="spliceOutput"></pre>
+  </div>
+
+  <div class="container">
+    <h2>5. Spread Operator Example</h2>
+    <pre id="spreadOutput"></pre>
+  </div>
+
+  <div style="text-align:center;">
+    <button onclick="runExamples()">Run Examples</button>
+  </div>
+
+  <script>
+    function runExamples() {
+      const numbers = [3, 8, 12, 25, 7, 18, 2];
+
+      const filtered = numbers.filter(num => num > 10);
+      document.getElementById("filterOutput").textContent = `
+Original Array: [${numbers}]
+Filtered (>10): [${filtered}]
+      `;
+
+      const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+      const product = numbers.reduce((acc, curr) => acc * curr, 1);
+      const words = ["JavaScript", "is", "awesome!"];
+      const sentence = words.reduce((acc, curr) => acc + " " + curr);
+      document.getElementById("reduceOutput").textContent = `
+Numbers: [${numbers}]
+Sum: ${sum}
+Product: ${product}
+Words: [${words}]
+Concatenated: "${sentence}"
+      `;
+
+      const sliced = numbers.slice(2, 5);
+      document.getElementById("sliceOutput").textContent = `
+Original Array: [${numbers}]
+Sliced (index 2 to 5): [${sliced}]
+After slice(): [${numbers}] (unchanged)
+      `;
+
+      const splicedArray = [...numbers]; 
+      const removed = splicedArray.splice(2, 2, 99, 100);
+      document.getElementById("spliceOutput").textContent = `
+Original Array: [${numbers}]
+Removed Elements: [${removed}]
+After splice(): [${splicedArray}]
+      `;
+
+      const cloned = [...numbers];
+      const moreNumbers = [50, 60, 70];
+      const merged = [...numbers, ...moreNumbers];
+      document.getElementById("spreadOutput").textContent = `
+Cloned Array: [${cloned}]
+Merged Arrays: [${merged}]
+      `;
+    }
+  </script>
+
+</body>
+</html>

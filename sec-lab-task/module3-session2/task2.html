@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complex Data & Parameters Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e7b0ef;
+      padding: 30px;
+      color: #050505;
+    }
+
+    h1 {
+      text-align: center;
+      color: #060606;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: rgb(186, 214, 226);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    button {
+      background-color: #4a90e2;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #357ABD;
+    }
+  </style>
+</head>
+<body>
+  <h1>Complex Data & Parameter Handling</h1>
+  <div class="container">
+    <h3>Output:</h3>
+    <pre id="output">Click the button to run the JavaScript code...</pre>
+    <button onclick="runExample()">Run Example</button>
+  </div>
+
+  <script>
+    function runExample() {
+      let output = '';
+
+      const users = [
+        { 
+          id: 1, 
+          name: 'Alice', 
+          contact: { email: 'alice@mail.com', phone: '123-456' } 
+        },
+        { 
+          id: 2, 
+          name: 'Bob', 
+          contact: { email: 'bob@mail.com', phone: '987-654' } 
+        }
+      ];
+
+      output += '--- Users & Nested Data ---\n';
+      output += `Alice's Email: ${users[0].contact.email}\n`;
+      output += `Bob's Phone: ${users[1].contact.phone}\n\n`;
+
+      const productsA = ['Laptop', 'Phone'];
+      const productsB = ['Tablet', 'Smartwatch'];
+      const allProducts = [...productsA, ...productsB];
+
+      output += '--- Combined Product List ---\n';
+      output += JSON.stringify(allProducts, null, 2) + '\n\n';
+
+      const originalUser = { name: 'Charlie', age: 25 };
+      const clonedUser = { ...originalUser, location: 'New York' };
+
+      output += '--- Cloned Object ---\n';
+      output += JSON.stringify(clonedUser, null, 2) + '\n\n';
+
+      function sumAll(...numbers) {
+        return numbers.reduce((acc, val) => acc + val, 0);
+      }
+
+      const total = sumAll(10, 20, 30, 40, 50);
+      output += '--- Rest Parameters Example ---\n';
+      output += `Sum of numbers: ${total}\n\n`;
+
+      function displayUser({ name, contact: { email } }) {
+        return `${name}'s email is ${email}`;
+      }
+
+      output += '--- Parameter Destructuring ---\n';
+      output += displayUser(users[0]) + '\n';
+
+      document.getElementById('output').textContent = output;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+var itemName = "Laptop";
+let itemPrice = 1200;
+const taxRate = 0.08; 
+
+console.log("=== Shopping Cart Summary ===");
+console.log("Item:", itemName);
+console.log("Base Price: $" + itemPrice);
+console.log("Tax Rate:", taxRate * 100 + "%");
+
+let taxAmount = itemPrice * taxRate;
+let totalPrice = itemPrice + taxAmount;
+
+console.log("\nAfter Tax Calculation:");
+console.log("Tax Amount: $" + taxAmount);
+console.log("Total Price: $" + totalPrice);
+
+itemPrice = 1000; 
+console.log("\nAfter Applying Discount:");
+console.log("New Base Price: $" + itemPrice);
+
+taxAmount = itemPrice * taxRate;
+totalPrice = itemPrice + taxAmount;
+
+console.log("New Tax Amount: $" + taxAmount);
+console.log("New Total Price: $" + totalPrice);
+
+console.log("\nFinal Summary:");
+console.log(`You bought a ${itemName} for $${totalPrice.toFixed(2)} (including tax).`);

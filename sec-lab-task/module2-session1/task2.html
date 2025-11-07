@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Expressions & Arrow Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #9eb9b5;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #d68ed0;
+            color: rgb(14, 14, 14);
+        }
+
+        button:hover {
+            background-color: #dc5df0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Function Expressions & Arrow Functions</h1>
+
+    <button onclick="testFunctionExpression()">Test Function Expression</button>
+    <button onclick="testArrowFunction()">Test Arrow Function</button>
+    <button onclick="testArrowSingleLine()">Test Single-line Arrow Function</button>
+
+    <script>
+        function multiply(a, b) {
+            return a * b;
+        }
+
+        const multiplyExpression = function(a, b) {
+            return a * b;
+        };
+
+        const multiplyArrow = (a, b) => {
+            return a * b;
+        };
+
+        const multiplyArrowShort = (a, b) => a * b;
+
+        function testFunctionExpression() {
+            console.log("Function Expression:", multiplyExpression(5, 4)); 
+        }
+
+        function testArrowFunction() {
+            console.log("Arrow Function:", multiplyArrow(6, 7)); 
+        }
+
+        function testArrowSingleLine() {
+            console.log("Single-line Arrow Function:", multiplyArrowShort(8, 3)); 
+        }
+
+        const person = {
+            name: "Alice",
+            greetTraditional: function() {
+                console.log("Traditional Function 'this':", this.name);
+            },
+            greetArrow: () => {
+                console.log("Arrow Function 'this':", this.name); 
+            }
+        };
+
+        console.log("Demonstrating 'this' behavior:");
+        person.greetTraditional(); 
+        person.greetArrow();       
+    </script>
+</body>
+</html>

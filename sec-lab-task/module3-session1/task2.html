@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Objects and Methods Example</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    pre { background: #ffffff; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+<h2>Working with Objects and Methods</h2>
+<pre id="output"></pre>
+
+<script>
+  
+  const student = {
+    name: "John Doe",
+    age: 20,
+    course: "Computer Science",
+    displayInfo: function() {
+      return `Name: ${this.name}, Age: ${this.age}, Course: ${this.course}`;
+    }
+  };
+
+  let info1 = student.displayInfo();
+
+  student.age = 21;
+  student.course = "Software Engineering";
+  let info2 = student.displayInfo();
+
+  student.grade = "A";
+  student.getGrade = function() {
+    return `${this.name}'s grade is ${this.grade}`;
+  };
+
+  let info3 = student.getGrade();
+
+  document.getElementById("output").textContent = `
+Initial Info: ${info1}
+After Update: ${info2}
+New Method: ${info3}
+  `;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Creation & Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4c7c7;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            background-color: #c9b5e4;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        pre {
+            background-color: #b9d59d;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Array Creation & Basic Operations</h1>
+
+    <div class="section">
+        <h2>Array Operations Demo</h2>
+        <pre id="arrayOutput"></pre>
+    </div>
+
+    <script>
+        const arrayOutput = document.getElementById('arrayOutput');
+
+        let numberArray = [10, 20, 30, 40];
+        let stringArray = ["Apple", "Banana", "Cherry"];
+
+        let firstNumber = numberArray[0]; 
+        let lastString = stringArray[stringArray.length - 1]; 
+
+        numberArray[1] = 25; 
+        stringArray[0] = "Apricot"; 
+
+        let numberArrayLength = numberArray.length;
+        let stringArrayLength = stringArray.length;
+
+        numberArray.push(50); 
+        numberArray.unshift(5); 
+        let removedLast = numberArray.pop(); 
+        let removedFirst = numberArray.shift(); 
+
+        stringArray.push("Date"); 
+        stringArray.unshift("Avocado"); 
+        let removedStringLast = stringArray.pop(); 
+        let removedStringFirst = stringArray.shift(); 
+
+        arrayOutput.textContent = 
+`Initial number array: [10, 20, 30, 40]
+Initial string array: ["Apple", "Banana", "Cherry"]
+
+Accessed elements:
+First number: ${firstNumber}
+Last string: ${lastString}
+
+After modification:
+Number array: [${numberArray}]
+String array: ["${stringArray.join('", "')}"]
+
+Array lengths:
+Number array length: ${numberArrayLength}
+String array length: ${stringArrayLength}
+
+Adding/Removing elements results:
+Number array after push/unshift/pop/shift: [${numberArray}]
+Removed last number: ${removedLast}
+Removed first number: ${removedFirst}
+
+String array after push/unshift/pop/shift: ["${stringArray.join('", "')}"]
+Removed last string: ${removedStringLast}
+Removed first string: ${removedStringFirst}`;
+    </script>
+
+</body>
+</html>
